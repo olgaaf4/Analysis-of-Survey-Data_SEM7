@@ -1,0 +1,58 @@
+---
+title: "Sprawozdanie zaliczeniowe"
+author: "Olga Foriasz, Tomasz Warzecha"
+date: "2026-10-26"
+output:
+  pdf_document:
+    toc: true
+    fig_caption: true
+    fig_width: 5
+    fig_height: 4
+    number_sections: true
+  html_document:
+    toc: true
+    df_print: paged
+header-includes:
+- \usepackage[polish]{babel}
+- \usepackage[OT4]{polski}
+- \usepackage[T1]{fontenc}
+- \usepackage[utf8]{inputenc}
+- \usepackage{graphicx}
+- \usepackage{float}
+subtitle: Analiza przeżycia
+fontsize: 11pt
+---
+
+## PAMIETAJ ZEBY USUNAC NUMERACJE LIST - ONA JEST POMOCNICZA
+# LISTA 1
+
+# Opis zbioru danych 
+
+Do analiz wybrany został zbiór _Heart Disease Patients Clinical Data_ (_heartdisease_tbl_df_) z pakietu _CardioDataSets_. Dane pochodzą z pakietu cheese w wersji 0.1.2. Originale źródło: UCI Machine Learning Repository. Zbiór zawiera 303 obserwacje oraz 9 zmiennych:
+
+* *Age* - wiek pacjenta, zmienna porządkowa (<45, 45-55, 55-65, >65)
+* *Sex* - płeć, zmienna nominalna (Female/Male)
+* *Chestpain* - rodzaj bólu w klatce piersiowej, zmienna nominalna (Asymptomatic, Non-anginal pain, Atypical angina, Typical angina)
+* *BP* - ciśnienie krwi w spoczynku, zmienna ilościowa
+* *BS* - glikemia na czczo >120 mg/dl, zmienna binarna (TRUE/FALSE)
+* *Cholesterol* - poziom cholesterolu, zmienna porządkowa (Normal/Elevated/High)
+* *Max_HR* - maksymalne tętno osiągnięte podczas wysiłku, zmienna ilościowa
+* *InducedAngina* - dławica wywołana wysiłkiem, zmienna binarna (Yes/No)
+* *HeartDisease* - obecność choroby serca, zmienna binarna (Yes/No)
+
+Twórcami bazy byli Andras Janosi, William Steinbrunn, Matthias Pfisterer oraz Robert Detrano. Dane były zebrane w Cleveland, na Węgrzech, w Szwajcarii oraz VA Long Beach. Na stronie nie ma informacji o spoosbie zebrania danych.
+
+Poniżej ukazane zostały pierwsze linijki zbioru danych: 
+
+```{r wczytanie_wyswietlenie_danych, echo=FALSE, warning=FALSE}
+library(knitr)
+library(readxl)
+library(kableExtra)
+library(readxl)
+dane<-read.csv2("dane_ada_heart_disease.csv")
+
+kable(dane[1:5, ], booktabs = TRUE, row.names = FALSE) %>%
+  kable_styling(position = "left", latex_options = "scale_down")
+
+```
+
